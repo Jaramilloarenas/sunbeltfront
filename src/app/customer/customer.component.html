@@ -1,0 +1,24 @@
+
+<div class="row">
+    <div class="col-md-12"><h1 class="my-3">Consultar cliente</h1></div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <label for="cmbTypes" class="form-label mt-3" >Tipo documento</label>
+        <select id="cmbTypes" [(ngModel)]="typeDocument" name="cmbTypes" size="1" class="form-select w-25" required = "required" >
+            <option value=""> Seleccione</option>
+            @for (doc of documentTypes.documents; track doc.value) {
+                <option value="{{ doc.value }}"> {{doc.nombre}}</option>
+            }
+        </select>
+    </div>
+    <div class="col-md-12">
+        <label for="txtDocument" class="form-label mt-3">Número de documento</label>
+        <input type="text" [(ngModel)]="document" id="txtDocument" name="txtDocument" class="form-control w-25" required = "required"/>
+    </div>
+
+    <div class="col-md-3 " style="align-self: self-end;">
+        <button (click)="getCustomer()" class="btn btn-primary my-3">Consultar</button>
+    </div>
+</div>
